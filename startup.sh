@@ -9,4 +9,4 @@ echo ZooKeeper: $FABRIC8_ZOOKEEPER_URL using environment: $FABRIC8_FABRIC_ENVIRO
 # TODO allow this to be disabled via an env var
 service sshd start
 
-sudo -u java -cp lib/* $FABRIC8_JAVA_MAIN
+sudo -u fabric8 java -cp lib/* $FABRIC8_JAVA_MAIN
