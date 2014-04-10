@@ -29,6 +29,8 @@ RUN echo "alias grep='grep --color=auto'" >> /etc/profile
 
 WORKDIR /home/fabric8
 
+ADD http://central.maven.org/maven2/org/jolokia/jolokia-jvm/1.2.0/jolokia-jvm-1.2.0-agent.jar jolokia-agent.jar
+
 RUN mkdir lib
 #RUN chown -R fabric8:fabric8 lib
 
@@ -37,7 +39,7 @@ RUN mkdir lib
 RUN curl --silent --output startup.sh https://raw.githubusercontent.com/fabric8io/fabric8-java-docker/9c0b01d2633bbfe90c26fadb255d7479d22750f3/startup.sh
 RUN chmod +x startup.sh
 
-EXPOSE 22 8080
+EXPOSE 22 8080 8778
 
 #USER root
 
