@@ -13,7 +13,7 @@ RUN sed -i 's/.*requiretty$/#Defaults requiretty/' /etc/sudoers
 ENV JAVA_HOME /usr/lib/jvm/jre
 
 # add a user for the application, with sudo permissions
-RUN useradd -m fabric8 ; echo fabric8: | chpasswd ; usermod -a -G wheel fabric8
+#RUN useradd -m fabric8 ; echo fabric8: | chpasswd ; usermod -a -G wheel fabric8
 
 # assigning higher default ulimits
 # unluckily this is not very portable. these values work only if the user running docker daemon on the host has his own limits >= than values set here
@@ -30,15 +30,15 @@ RUN echo "alias grep='grep --color=auto'" >> /etc/profile
 WORKDIR /home/fabric8
 
 RUN mkdir lib
-RUN chown -R fabric8:fabric8 lib
+#RUN chown -R fabric8:fabric8 lib
 
-USER fabric8
+#USER fabric8
 
 RUN curl --silent --output startup.sh https://raw.githubusercontent.com/fabric8io/fabric8-java-docker/4561f17f53bff2c6f0faa145529c61c5b642d98f/startup.sh
 RUN chmod +x startup.sh
 
 EXPOSE 22 8080
 
-USER root
+#USER root
 
 CMD /home/fabric8/startup.sh
