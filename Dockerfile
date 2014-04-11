@@ -13,6 +13,7 @@ RUN sed -i 's/.*requiretty$/#Defaults requiretty/' /etc/sudoers
 ENV JAVA_HOME /usr/lib/jvm/jre
 ENV FABRIC8_JAVA_AGENT -javaagent:jolokia-agent.jar=host=0.0.0.0
 ENV FABRIC8_JVM_ARGS 
+ENV FABRIC8_MAIN_ARGS
 
 # add a user for the application, with sudo permissions
 #RUN useradd -m fabric8 ; echo fabric8: | chpasswd ; usermod -a -G wheel fabric8
