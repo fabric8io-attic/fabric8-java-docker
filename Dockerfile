@@ -39,7 +39,7 @@ RUN mkdir lib
 
 #USER fabric8
 
-RUN curl --silent --output startup.sh https://raw.githubusercontent.com/fabric8io/fabric8-java-docker/7efe6665fe01cfbe7ef37f45874952ca76a12965/startup.sh
+RUN curl --silent --output startup.sh https://raw.githubusercontent.com/fabric8io/fabric8-java-docker/3a288da6e4996f6d1a72f6366438370b50d01030/startup.sh
 RUN chmod +x startup.sh
 
 EXPOSE 22 8080 8778
