@@ -8,17 +8,17 @@ Try it out
 
 If you have docker installed you should be able to try it out via
 
-    docker run -p 8080 -d -t fabric8/fabric8-java
+    docker run -P -d -t fabric8/fabric8-java
 
 You can pass in various [environment variables](http://fabric8.io/#/site/book/doc/index.md?chapter=environmentVariables_md) to customise how a fabric is created or joined; or specify stand alone mode if required etc.
 
 e.g. to startup 5 Fabric8 instances; each will get their own IP address etc:
 
-    docker run -d -p 8080 fabric8/fabric8-java
-    docker run -d -p 8080 fabric8/fabric8-java
-    docker run -d -p 8080 fabric8/fabric8-java
-    docker run -d -p 8080 fabric8/fabric8-java
-    docker run -d -p 8080 fabric8/fabric8-java
+    docker run -d -P fabric8/fabric8-java
+    docker run -d -P fabric8/fabric8-java
+    docker run -d -P fabric8/fabric8-java
+    docker run -d -P fabric8/fabric8-java
+    docker run -d -P fabric8/fabric8-java
     
 You can then run **docker attach** or **docker logs** to get the logs at any time.
 
@@ -43,7 +43,7 @@ Experimenting
 
 To spin up a shell in one of the containers try:
 
-    docker run -p 8080 -i -t fabric8:fabric8-java /bin/bash
+    docker run -P -i -t fabric8:fabric8-java /bin/bash
 
 You can then noodle around the container and run stuff & look at files etc.
 
