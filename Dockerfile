@@ -36,7 +36,7 @@ RUN mkdir logs
 
 ADD log4j.properties /home/fabric8/classes/
 ADD startup.sh /home/fabric8/
-RUN chmod +x startup.sh
+RUN chmod +x startup.sh 
 
 
 ENV JAVA_HOME /usr/lib/jvm/jre
@@ -44,7 +44,7 @@ ENV FABRIC8_JAVA_AGENT -javaagent:jolokia-agent.jar=host=0.0.0.0
 ENV FABRIC8_JVM_ARGS -Dlog4j.configuration=etc/log4j.properties
 #ENV FABRIC8_MAIN_ARGS
 
-#RUN chown -R fabric8:fabric8 /home/fabric8/*
+RUN chown -R fabric8:fabric8 /home/fabric8/*
 
 # TODO changing the user causes derived containers to not use the correct user
 #USER fabric8
