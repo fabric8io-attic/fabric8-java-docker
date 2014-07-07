@@ -1,28 +1,18 @@
 fabric8-java-docker
 =====================
 
-This project builds a [docker](http://docker.io/) container for running Java based micro services.
+This project builds a [docker](http://docker.io/) container which is used by [fabric8](http://fabric8.io/) to create Java based [Micro Services](http://fabric8.io/gitbook/microServices.html) using the [Java Container](http://fabric8.io/gitbook/javaContainer.html).
+
+Its not intended for this container image to be usable by itself; its used by the [Java Container](http://fabric8.io/gitbook/javaContainer.html) to create a new docker container image for each micro service as you create a container for the profile for a java container using the [docker plugin](http://fabric8.io/gitbook/docker.html)
 
 Try it out
 ----------
 
-If you have docker installed you should be able to try it out via
-
-    docker run -P -d -t fabric8/fabric8-java
-
-You can pass in various [environment variables](http://fabric8.io/#/site/book/doc/index.md?chapter=environmentVariables_md) to customise how a fabric is created or joined; or specify stand alone mode if required etc.
-
-e.g. to startup 5 Fabric8 instances; each will get their own IP address etc:
-
-    docker run -d -P fabric8/fabric8-java
-    docker run -d -P fabric8/fabric8-java
-    docker run -d -P fabric8/fabric8-java
-    docker run -d -P fabric8/fabric8-java
-    docker run -d -P fabric8/fabric8-java
-    
-You can then run **docker attach** or **docker logs** to get the logs at any time.
-
-Run  **docker ps** to see all the running containers or **docker inspect $containerID** to view the IP address and details of a container
+* this [demo](http://macstrac.blogspot.co.uk/2014/05/micro-services-with-fabric8.html) shows how to get started using a [Java Container](http://fabric8.io/gitbook/javaContainer.html) with fabric8
+* check out how to use [docker with fabric8](http://fabric8.io/gitbook/docker.html); in particularly you need to:
+  * ensure docker containers can see the host running the fabric; e.g. using localip or manualip resolution (as on OS X and Windows often docker containers cannot see your local host machines host name)
+  * add the docker profile to the root container
+* if you use the fabric8 console or command line to create a docker container for the java container profile; it will create a new docker image on the fly based on **fabric8/fabric8-java** but also copying any configuration files or jars into the lib folder etc.
 
 
 Building the docker container locally
