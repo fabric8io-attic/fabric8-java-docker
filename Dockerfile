@@ -1,7 +1,7 @@
 FROM centos
 
 # telnet is required by some fabric command. without it you have silent failures
-RUN yum install -y java-1.7.0-openjdk which telnet unzip openssh-server sudo openssh-clients
+RUN yum install -y java-1.7.0-openjdk java-1.7.0-openjdk-devel which telnet unzip openssh-server sudo openssh-clients
 # enable no pass and speed up authentication
 RUN sed -i 's/#PermitEmptyPasswords no/PermitEmptyPasswords yes/;s/#UseDNS yes/UseDNS no/' /etc/ssh/sshd_config
 
@@ -44,7 +44,7 @@ ENV FABRIC8_JAVA_AGENT -javaagent:jolokia-agent.jar=host=0.0.0.0
 ENV FABRIC8_JVM_ARGS -Dlog4j.configuration=etc/log4j.properties
 #ENV FABRIC8_MAIN_ARGS
 
-RUN chown -R fabric8:fabric8 /home/fabric8/*
+#RUN chown -R fabric8:fabric8 /home/fabric8
 
 # TODO changing the user causes derived containers to not use the correct user
 #USER fabric8
