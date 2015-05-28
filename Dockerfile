@@ -27,7 +27,7 @@ RUN echo "alias grep='grep --color=auto'" >> /etc/profile
 
 WORKDIR /home/fabric8
 
-ADD http://central.maven.org/maven2/org/jolokia/jolokia-jvm/1.3.0/jolokia-jvm-1.3.0-agent.jar /home/fabric8/jolokia-agent.jar
+ADD http://central.maven.org/maven2/org/jolokia/jolokia-jvm/1.3.1/jolokia-jvm-1.3.1-agent.jar /home/fabric8/jolokia-agent.jar
 
 RUN mkdir lib
 RUN mkdir classes
